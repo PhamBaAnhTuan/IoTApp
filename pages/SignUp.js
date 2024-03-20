@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, SafeAreaView, View, TextInput, Button, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, TextInput, Button, Image, TouchableOpacity, TouchableHighlight, ScrollView } from 'react-native';
 import GetStart from "./GetStart";
 
 export const SignUp = ({ navigation }) =>{
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 100,
     paddingVertical: 25,
     borderRadius: 30,
-    marginVertical: 10
+    marginVertical: 10,
   },
   icon:{
     marginHorizontal: 50,

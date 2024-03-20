@@ -23,7 +23,7 @@ export const SignIn = ({ navigation }) =>{
             </TouchableOpacity>
 
             {/* Sign In Btn */}
-            <TouchableOpacity style={styles.signInBtn} >
+            <TouchableOpacity style={styles.signInBtn} onPress={() => navigation.navigate('Home')} >
               <Text style={{fontSize: 15, fontWeight: '700', color: '#fff'}}>Sign In</Text>
             </TouchableOpacity>
 

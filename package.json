@@ -9,13 +9,25 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@firebase/auth": "^1.6.2",
+    "@fortawesome/fontawesome-svg-core": "^6.5.1",
+    "@fortawesome/react-native-fontawesome": "^0.3.0",
+    "@react-native-community/art": "^1.2.0",
+    "@react-native-firebase/app": "^19.0.1",
+    "@react-native-firebase/auth": "^19.0.1",
     "@react-navigation/native": "^6.1.17",
     "@react-navigation/stack": "^6.3.29",
     "expo": "~50.0.13",
+    "expo-linear-gradient": "~12.7.2",
     "expo-status-bar": "~1.11.1",
+    "firebase": "^10.9.0",
+    "font-awesome": "^4.7.0",
     "react": "18.2.0",
     "react-native": "0.73.5",
+    "react-native-pie-chart": "^3.0.2",
     "react-native-screens": "^3.29.0",
+    "react-native-svg": "^15.1.0",
+    "react-native-vector-icons": "^10.0.3",
     "react-navigation": "^5.0.0"
   },
   "devDependencies": {

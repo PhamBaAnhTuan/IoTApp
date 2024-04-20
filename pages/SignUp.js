@@ -22,9 +22,9 @@ export const SignUp = ({ navigation }) =>{
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         // Signed up successfully
         const user = userCredential.user;
-        console.log('User signed up success:', user);
+        console.log('User signed up success:', user.email, user.password);
         alert('Created Account')
-        navigation.navigate('SignInOrSignOut');
+        navigation.navigate('SignInOrSignUp');
       } catch (error) {
         // Error
         console.error('Sign up error:', error);

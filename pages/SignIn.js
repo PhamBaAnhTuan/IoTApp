@@ -28,7 +28,7 @@ export const SignIn = ({ navigation }) => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       // Signed up successfully
       const user = userCredential.user;
-      console.log('User signed in:', user);
+      console.log('User signed in:', user.email);
       alert('Login successful')
       navigation.navigate("Home");
     } catch (error) {

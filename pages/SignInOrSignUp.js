@@ -35,9 +35,9 @@ export default function SignInOrSignUp({ navigation }) {
                     <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate('SignUp')}>
                         <Text style={styles.text}>Sign Up</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.btn} onPress={handleSignOut}>
+                    {/* <TouchableOpacity style={styles.btn} onPress={handleSignOut}>
                         <Text style={styles.text}>Sign Out</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
             </SafeAreaView>
         </LinearGradient>

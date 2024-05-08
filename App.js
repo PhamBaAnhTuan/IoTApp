@@ -15,9 +15,9 @@ import Home from './pages/Home';
 
 export default function App() {
   return (
-        <NavigationContainer>
-          <AppNavigator />
-        </NavigationContainer>
-      // <Home/>
+        // <NavigationContainer>
+        //   <AppNavigator />
+        // </NavigationContainer>
+      <Home/>
   );
 }

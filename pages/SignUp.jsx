@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, View, TextInput, Button, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, View, TextInput, Button, Image, TouchableOpacity, ScrollView, KeyboardAvoidingView, Platform, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 import { createUserWithEmailAndPassword } from "@firebase/auth";
@@ -32,14 +32,12 @@ export const SignUp = ({ navigation }) =>{
       }
     };
 
-
-
     return(
 
+      <SafeAreaView style={styles.view}>
         <LinearGradient
               colors={['#66ffff', '#3b5998', '#192f6a']}
               style={styles.gradient}>
-          <SafeAreaView style={styles.view}>
             {/* <Image style={styles.logo} source={require('../assets/Logo/Spotify.png')}></Image> */}
               <Text style={styles.signUpTitle}>Sign Up</Text>
   
@@ -78,9 +76,9 @@ export const SignUp = ({ navigation }) =>{
               </TouchableOpacity>
   
               <View style={{flexDirection: 'row', alignItems: 'space-around'}}>
-                <View style={{height: 1, width: 130, backgroundColor: 'black'}}></View>
-                <Text style={{paddingHorizontal: 10, fontSize: 15, marginTop: 50}}>Or</Text>
-                <View style={{height: 1, width: 130, backgroundColor: 'black'}}></View>
+                <View style={{height: 1, width: 130, backgroundColor: 'white'}}></View>
+                <Text style={{paddingHorizontal: 10, fontSize: 15, marginTop: 50, color: 'white'}}>Or</Text>
+                <View style={{height: 1, width: 130, backgroundColor: 'white'}}></View>
               </View>
   
               {/* Another Sign In */}
@@ -101,8 +99,8 @@ export const SignUp = ({ navigation }) =>{
                 </TouchableOpacity>
               </View>
   
-          </SafeAreaView>
         </LinearGradient>
+          </SafeAreaView>
     );
 }
 
@@ -117,16 +115,16 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     flex: 1,
-    // backgroundColor: '#67e6ff',
     alignItems: 'center',
-    // justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
   },
+
   signUpTitle: {
     fontSize: 50,
     fontWeight: '700',
-    marginTop: 100,
-    marginBottom: 100,
+    marginVertical: 30
   },
+
   detailText:{
     fontSize: 12,
     fontWeight: '400'
@@ -139,8 +137,8 @@ const styles = StyleSheet.create({
   textInput:{
     borderColor: 'black',
     borderWidth: 1,
-    borderRadius: 30,
-    height: 60,
+    borderRadius: 15,
+    height: 55,
     width: 300,
     paddingLeft: 25,
     fontSize: 15,
@@ -154,11 +152,12 @@ const styles = StyleSheet.create({
     // alignItems: 'flex-start',
     // justifyContent: 'flex-start'
   },
+
   signUpBtn:{
     backgroundColor: '#66abcd',
     paddingHorizontal: 100,
-    paddingVertical: 25,
-    borderRadius: 30,
+    paddingVertical: 17,
+    borderRadius: 15,
     marginVertical: 10,
   },
   icon:{
@@ -168,12 +167,14 @@ const styles = StyleSheet.create({
   notMbText:{
     fontSize: 14,
     fontWeight: '700',
-    marginTop: 15
-  },    
+    marginTop: 40,
+    color: 'white',
+  },
+
   signUpText:{
     fontSize: 14,
     fontWeight: '700',
     color: '#66ffff',
-    marginTop: 15
+    marginTop: 40
   }
 });

@@ -5,17 +5,15 @@ import SignInOrSignUp from "../pages/SignInOrSignUp";
 import { SignIn } from "../pages/SignIn";
 import { SignUp } from "../pages/SignUp";
 import Home from "../pages/Home";
+import TempScreen from "../pages/TempScreen";
 import { onAuthStateChanged, User, FirebaseUserState } from "@firebase/auth";
-import { FIREBASE_AUTH } from "../firebase/FirebaseConfig";
 import TabNavigator from "./TabNavigator";
 
 const Stack = createStackNavigator();
-const Tab = createStackNavigator();
 
-const AppNavigator = () => {
-  
+const AppNavigator = ({navigation}) => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Home">
       <Stack.Screen
         name="GetStart"
         component={GetStart}
@@ -26,11 +24,6 @@ const AppNavigator = () => {
         component={SignInOrSignUp}
         options={{ headerShown: false }}
       >
-        {/* <Tab.Navigator>
-            <Tab.Screen name="SignIn" component={SignIn} />
-            <Tab.Screen name="SignUp" component={SignUp} />
-        </Tab.Navigator> */}
-        
       </Stack.Screen>
       <Stack.Screen
         name="Home"
@@ -45,6 +38,16 @@ const AppNavigator = () => {
       <Stack.Screen
         name="SignUp"
         component={SignUp}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="TempScreen"
+        component={TempScreen}
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="TabNavigator"
+        component={TabNavigator}
         options={{ headerShown: false }}
       />
     </Stack.Navigator>

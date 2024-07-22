@@ -8,6 +8,9 @@ import {
   Button,
   Image,
   TouchableOpacity,
+  Platform,
+  StatusBar,
+  ToastAndroid,
 } from "react-native";
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -29,7 +32,7 @@ export const SignIn = ({ navigation }) => {
       // Signed up successfully
       const user = userCredential.user;
       console.log('User signed in:', user.email);
-      alert('Login successful')
+      ToastAndroid.show('Login successful', ToastAndroid.SHORT);
       navigation.navigate("Home");
     } catch (error) {
       // Error
@@ -39,10 +42,10 @@ export const SignIn = ({ navigation }) => {
   };
 
   return (
+    <SafeAreaView style={styles.view}>
       <LinearGradient
               colors={['#66ffff', '#3b5998', '#192f6a']}
               style={styles.gradient}>
-    <SafeAreaView style={styles.view}>
       {/* <Image style={styles.logo} source={require('../assets/Logo/Spotify.png')}></Image> */}
       <Text style={styles.signInTitle}>Sign In</Text>
 
@@ -73,7 +76,9 @@ export const SignIn = ({ navigation }) => {
           
 
       <TouchableOpacity
-        onPress={() => alert("Access Spotify/help.com for more!")}>
+        onPress={() => alert("Access Spotify/help.com for more!")}
+          style={styles.fgPassWrap}
+        >
         <Text style={styles.fgPass} >Forgot Password?</Text>
       </TouchableOpacity>
 
@@ -88,7 +93,7 @@ export const SignIn = ({ navigation }) => {
         <View
           style={{ height: 1, width: 130, backgroundColor: "white" }}
         ></View>
-        <Text style={{ paddingHorizontal: 10, fontSize: 15, marginTop: 70 }}>Or</Text>
+        <Text style={{ paddingHorizontal: 10, fontSize: 15, marginTop: 70, color: 'white' }}>Or</Text>
         <View
           style={{ height: 1, width: 130, backgroundColor: "white" }}
         ></View>
@@ -117,39 +122,30 @@ export const SignIn = ({ navigation }) => {
           <Text style={styles.signUpText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
-    </SafeAreaView>
     </LinearGradient>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  // logo:{
-  //   flex: 1,
-  //   position: 'absolute',
-  //   top: 10,
-
-  // },
+  view: {
+    height: "100%",
+    width: "100%",
+    alignItems: "center",
+    paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
+  },
   gradient:{
     height: '100%',
     width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  view: {
-    height: "100%",
-    width: "100%",
-    // flex: 1,
-    // backgroundColor: "#67e6ff",
-    alignItems: "center",
-    // justifyContent: 'center',
-  },
   signInTitle: {
     fontSize: 50,
     fontWeight: "700",
-    marginTop: 100,
-    marginBottom: 100,
-    // marginVertical: 20
+    marginVertical: 50
   },
+
   detailText: {
     fontSize: 12,
     fontWeight: "400",
@@ -162,14 +158,21 @@ const styles = StyleSheet.create({
   textInput: {
     borderColor: "black",
     borderWidth: 1,
-    borderRadius: 30,
-    height: 60,
+    borderRadius: 15,
+    height: 55,
     width: 300,
     paddingLeft: 25,
     fontSize: 15,
     fontWeight: "400",
     marginVertical: 3,
     color: "white",
+  },
+
+  fgPassWrap:{
+    width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingRight: 40
   },
   fgPass: {
     fontSize: 13,
@@ -178,11 +181,13 @@ const styles = StyleSheet.create({
     color:'#66abcd',
     // alignItems: 'flex-start',
   },
+
+
   signInBtn: {
     backgroundColor: "#66abcd",
-    paddingHorizontal: 120,
-    paddingVertical: 25,
-    borderRadius: 30,
+    paddingHorizontal: 125,
+    paddingVertical: 17,
+    borderRadius: 15,
     marginVertical: 10,
   },
   icon: {
@@ -193,7 +198,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontWeight: "700",
     marginTop: 15,
-    color: '#000'
+    color: 'white',
   },
   signUpText: {
     fontSize: 14,
